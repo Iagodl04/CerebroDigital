@@ -31,17 +31,17 @@ El proyecto utiliza una arquitectura de microservicios contenerizados sobre hard
 * **Hardware:** Raspberry Pi 5 (8GB RAM) con arranque desde SSD vía USB 3.0 para evitar cuellos de botella.
 * **OS:** Raspberry Pi OS Lite (64-bit).
 * **Orquestación:** Docker & Docker Compose, gestionado visualmente con **Portainer**.
-* **Red y Seguridad:** Túnel VPN **WireGuard** para acceso remoto y autenticación SSH mediante claves RSA.
+* **Red y Seguridad:** Túnel VPN **WireGuard** para acceso remoto y autenticación SSH.
 
 ### Backend y Servicios de Datos
 * **Immich:** Gestión de fotos con reconocimiento facial y mapas de calor.
-* **Paperless-ngx:** Digitalización de documentos con OCR (Tesseract).
+* **Paperless-ngx:** Digitalización, OCR e indexado de documentos.
 * **Nginx:** Servidor web ligero para el despliegue del dashboard.
 * **Middleware:** Scripts personalizados en Python/Node.js para la ingesta y normalización de datos.
 
 ### Inteligencia Artificial (Local)
 * **Motor:** Ollama ejecutándose en la Raspberry Pi.
-* **Modelo:** Phi-3 (o similar cuantizado) optimizado para hardware limitado.
+* **Modelo:** Qwen 2.5 (1.5B), un modelo ligero y optimizado para hardware limitado[cite: 567].
 * **Enfoque:** La IA procesa un CSV estructurado (ubicaciones, fechas, salud, ...) para generar texto narrativo.
 
 ### Frontend
