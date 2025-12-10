@@ -6,19 +6,19 @@
 
 ## 📖 Introducción
 
-[cite_start]**Mi Cerebro Digital** es un proyecto de **Cloud Personal Privado (CPP)** nacido como respuesta a la pérdida de soberanía digital[cite: 222]. [cite_start]En lugar de ceder nuestros datos a grandes corporaciones, hemos diseñado una infraestructura auto-alojada (*self-hosted*) que centraliza, protege y procesa la información personal en el hogar[cite: 226].
+**Mi Cerebro Digital** es un proyecto de **Cloud Personal Privado (CPP)** nacido como respuesta a la pérdida de soberanía digital[cite: 222]. [cite_start]En lugar de ceder nuestros datos a grandes corporaciones, hemos diseñado una infraestructura auto-alojada (*self-hosted*) que centraliza, protege y procesa la información personal en el hogar.
 
-[cite_start]El sistema integra fotos, documentos y datos de salud en una interfaz unificada, utilizando **Inteligencia Artificial Local** para generar resúmenes narrativos de tu día a día, garantizando que tus datos nunca salgan de tu red privada[cite: 238, 239].
+El sistema integra fotos, documentos y datos de salud en una interfaz unificada, utilizando **Inteligencia Artificial Local** para generar resúmenes narrativos de tu día a día, garantizando que tus datos nunca salgan de tu red privada.
 
 ## 🚀 Objetivos del Proyecto
 
-* [cite_start]**Soberanía de Datos:** Alojamiento físico de la información en una Raspberry Pi 5, eliminando intermediarios[cite: 226, 227].
-* [cite_start]**Privacidad Absoluta:** Uso de VPN (WireGuard) y procesamiento de IA en el borde (*Edge Computing*), sin enviar datos a la nube pública[cite: 232, 238].
+* **Soberanía de Datos:** Alojamiento físico de la información en una Raspberry Pi 5, eliminando intermediarios.
+* **Privacidad Absoluta:** Uso de VPN (WireGuard) y procesamiento de IA en el borde (*Edge Computing*), sin enviar datos a la nube pública.
 * **Agregación de Datos:** Unificación de fuentes heterogéneas:
-    * [cite_start]📸 Fotos y Vídeos (Immich)[cite: 235].
-    * [cite_start]📄 Documentos (Paperless-ngx)[cite: 235].
-    * [cite_start]❤️ Salud (Health Connect: Pasos y Sueño)[cite: 289].
-* [cite_start]**Narrativa con IA:** Implementación de un LLM local para convertir metadatos fríos en historias coherentes sobre tu día[cite: 239].
+    * 📸 Fotos y Vídeos (Immich).
+    * 📄 Documentos (Paperless-ngx).
+    * ❤️ Salud (Health Connect: Pasos y Sueño).
+* **Narrativa con IA:** Implementación de un LLM local para convertir metadatos fríos en historias coherentes sobre tu día.
 
 ## 🛠️ Arquitectura y Tecnologías
 
@@ -27,25 +27,25 @@ El proyecto utiliza una arquitectura de microservicios contenerizados sobre hard
 ![Arquitectura del Sistema](ruta/a/tu/diagrama_arquitectura.png)
 
 ### Infraestructura
-* [cite_start]**Hardware:** Raspberry Pi 5 (8GB RAM) con arranque desde SSD vía USB 3.0 para evitar cuellos de botella[cite: 264, 266].
-* [cite_start]**OS:** Raspberry Pi OS Lite (64-bit)[cite: 270].
-* [cite_start]**Orquestación:** Docker & Docker Compose, gestionado visualmente con **Portainer**[cite: 271, 332].
-* [cite_start]**Red y Seguridad:** Túnel VPN **WireGuard** para acceso remoto y autenticación SSH mediante claves RSA[cite: 274, 276].
+* **Hardware:** Raspberry Pi 5 (8GB RAM) con arranque desde SSD vía USB 3.0 para evitar cuellos de botella.
+* **OS:** Raspberry Pi OS Lite (64-bit).
+* **Orquestación:** Docker & Docker Compose, gestionado visualmente con **Portainer**.
+* **Red y Seguridad:** Túnel VPN **WireGuard** para acceso remoto y autenticación SSH mediante claves RSA.
 
 ### Backend y Servicios de Datos
-* [cite_start]**Immich:** Gestión de fotos con reconocimiento facial y mapas de calor[cite: 278].
-* [cite_start]**Paperless-ngx:** Digitalización de documentos con OCR (Tesseract)[cite: 281].
-* [cite_start]**Nginx:** Servidor web ligero para el despliegue del dashboard[cite: 282].
-* [cite_start]**Middleware:** Scripts personalizados en Python/Node.js para la ingesta y normalización de datos[cite: 292].
+* **Immich:** Gestión de fotos con reconocimiento facial y mapas de calor.
+* **Paperless-ngx:** Digitalización de documentos con OCR (Tesseract).
+* **Nginx:** Servidor web ligero para el despliegue del dashboard.
+* **Middleware:** Scripts personalizados en Python/Node.js para la ingesta y normalización de datos.
 
 ### Inteligencia Artificial (Local)
-* [cite_start]**Motor:** Ollama ejecutándose en la Raspberry Pi[cite: 284].
-* [cite_start]**Modelo:** Phi-3 (o similar cuantizado) optimizado para hardware limitado[cite: 499].
-* [cite_start]**Enfoque:** La IA procesa JSON estructurados (ubicaciones, fechas, contadores) para generar texto narrativo[cite: 299].
+* **Motor:** Ollama ejecutándose en la Raspberry Pi.
+* **Modelo:** Phi-3 (o similar cuantizado) optimizado para hardware limitado.
+* **Enfoque:** La IA procesa JSON estructurados (ubicaciones, fechas, contadores) para generar texto narrativo.
 
 ### Frontend
-* [cite_start]**Tecnologías:** HTML5, Tailwind CSS y JavaScript Vanilla (sin frameworks pesados para maximizar rendimiento)[cite: 287].
-* [cite_start]**Visualización:** Mapas interactivos con **Leaflet.js** para mostrar rutas basadas en las fotos del día[cite: 290].
+* **Tecnologías:** HTML5, Tailwind CSS y JavaScript Vanilla (sin frameworks pesados para maximizar rendimiento).
+* **Visualización:** Mapas interactivos con **Leaflet.js** para mostrar rutas basadas en las fotos del día.
 
 ## 📸 Galería de Funcionalidades
 
@@ -66,23 +66,23 @@ Integración completa de herramientas profesionales para la gestión de activos 
 
 ## 🔄 El Desafío Técnico: Pivote de la IA
 
-[cite_start]Durante el desarrollo (Fase PT4), nos enfrentamos a una limitación crítica: el uso de IA multimodal para "ver" y analizar píxeles de imágenes saturaba la CPU y RAM de la Raspberry Pi, provocando caídas del sistema[cite: 242, 297].
+Durante el desarrollo (Fase PT4), nos enfrentamos a una limitación crítica: el uso de IA multimodal para "ver" y analizar píxeles de imágenes saturaba la CPU y RAM de la Raspberry Pi, provocando caídas del sistema.
 
 **Nuestra Solución:**
 Cambiamos el paradigma de **"Ver imágenes"** a **"Leer datos"**.
-[cite_start]En lugar de procesar imágenes pesadas, desarrollamos un middleware que extrae metadatos (EXIF, coordenadas, contadores de pasos) y se los alimenta a la IA en formato JSON[cite: 298, 299]. [cite_start]Esto permitió generar resúmenes precisos con una latencia aceptable y sin comprometer la estabilidad del servidor[cite: 461].
+En lugar de procesar imágenes pesadas, desarrollamos un middleware que extrae metadatos (EXIF, coordenadas, contadores de pasos) y se los alimenta a la IA en formato JSON[cite: 298, 299]. [cite_start]Esto permitió generar resúmenes precisos con una latencia aceptable y sin comprometer la estabilidad del servidor.
 
 ## 🔮 Futuro del Proyecto
 
-* [cite_start]**Voz a Texto:** Implementación de Whisper local para añadir notas de voz subjetivas al resumen diario[cite: 547].
-* [cite_start]**Hardware NPU:** Integración de aceleradores como Coral Edge TPU para reducir tiempos de inferencia[cite: 552].
-* [cite_start]**RAG (Retrieval-Augmented Generation):** Dotar a la IA de memoria a largo plazo mediante bases de datos vectoriales[cite: 572].
+* **Voz a Texto:** Implementación de Whisper local para añadir notas de voz subjetivas al resumen diario.
+* **Hardware NPU:** Integración de aceleradores como Coral Edge TPU para reducir tiempos de inferencia.
+* **RAG (Retrieval-Augmented Generation):** Dotar a la IA de memoria a largo plazo mediante bases de datos vectoriales.
 
 ## 👥 Autores - Grupo 4
 
 Este proyecto ha sido desarrollado como parte de la asignatura PTI (2025) por:
 
-* [cite_start]**Iago Díaz Lamas** - Coordinador y Backend[cite: 161].
-* [cite_start]**Enrique de Vicente-Tutor Castillo** - Infraestructura y Redes[cite: 162].
-* [cite_start]**Xavi Pascual Closa** - Servicios de Datos[cite: 163].
-* [cite_start]**Darío González Paniego** - Integración e IA[cite: 164].
+* **Iago Díaz Lamas** - Coordinador y Backend.
+* **Enrique de Vicente-Tutor Castillo** - Infraestructura y Redes.
+* **Xavi Pascual Closa** - Servicios de Datos.
+* **Darío González Paniego** - Integración e IA.
