@@ -83,7 +83,7 @@ En lugar de procesar imágenes pesadas, desarrollamos un middleware que extrae m
 
 Este proyecto ha sido desarrollado como parte de la asignatura PTI (2025) por:
 
-* **Iago Díaz Lamas** - Coordinador y Backend.
-* **Enrique de Vicente-Tutor Castillo** - Infraestructura y Redes.
-* **Xavi Pascual Closa** - Servicios de Datos.
-* **Darío González Paniego** - Integración e IA.
+* **Iago Díaz Lamas** 
+* **Enrique de Vicente-Tutor Castillo** 
+* **Xavi Pascual Closa** 
+* **Darío González Paniego**
