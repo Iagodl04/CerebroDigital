@@ -1,8 +1,7 @@
 # Mi Cerebro Digital (CPP)
 
-**Tu vida, conectada y resumida.**
+**Tu vida, conectada y resumida de manera totalmente gratuita.**
 
-![Dashboard Principal](ruta/a/tu/imagen_dashboard_inicio.png)
 
 ## 📖 Introducción
 
