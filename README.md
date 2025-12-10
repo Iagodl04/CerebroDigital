@@ -5,9 +5,9 @@
 
 ## 📖 Introducción
 
-**Mi Cerebro Digital** es un proyecto de **Cloud Personal Privado (CPP)** nacido como respuesta a la pérdida de soberanía digital[cite: 222]. [cite_start]En lugar de ceder nuestros datos a grandes corporaciones, hemos diseñado una infraestructura auto-alojada (*self-hosted*) que centraliza, protege y procesa la información personal en el hogar.
+En la actualidad, nos enfrentamos a una elección forzada: ceder nuestra privacidad a grandes corporaciones tecnológicas o renunciar a la comodidad de la nube. **Mi Cerebro Digital** nace como una respuesta ética y técnica a este dilema, proponiendo un Cloud Personal Privado (CPP) donde la soberanía de los datos es absoluta.
 
-El sistema integra fotos, documentos y datos de salud en una interfaz unificada, utilizando **Inteligencia Artificial Local** para generar resúmenes narrativos de tu día a día, garantizando que tus datos nunca salgan de tu red privada.
+Más allá de un simple sistema de copias de seguridad, este proyecto transforma el almacenamiento pasivo en una memoria activa. Mediante una infraestructura auto-alojada físicamente en el hogar y un motor de Inteligencia Artificial Local, el sistema unifica tus fotos, documentos y métricas de salud para narrar la historia de tu día a día. Todo ello garantizando que tu información más íntima nunca salga de tu propia red.
 
 ## 🚀 Objetivos del Proyecto
 
