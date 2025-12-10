@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # --- SERVEI 1: INTEL·LIGÈNCIA ARTIFICIAL (OLLAMA) ---
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11435:11434"
+    volumes:
+      - ollama:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+    entrypoint: ["/bin/sh", "/entrypoint.sh"]
+    restart: unless-stopped
+
+  # --- SERVEI 2: API DE RESUMS (PYTHON) ---
+  ia_api:
+    build: ./resumen_general  # Construeix usant el Dockerfile d'aquesta carpeta
+    container_name: ia_api
+    restart: always
+    ports:
+      - "8095:8000"  # La web atacarà al port 8095 de la Raspberry
+    depends_on:
+      - ollama
+    volumes:
+      # 1. El codi font (per si fas canvis ràpids sense reconstruir)
+      - ./resumen_general:/app
+      
+      # 2. TRUC PER A LES RUTES RELATIVES (../../calendar)
+      # Mapegem les carpetes del host a l'arrel del contenidor.
+      # Quan l'script a /app faci "../../calendar", anirà a /calendar del contenidor.
+      - ../calendar/data:/calendar/data
+      
+      # 3. Paperless (../../paperless)
+      - ../paperless:/paperless
+      
+      # 4. Salut (../resumen_health)
+      - ./resumen_health:/resumen_health
+      
+      # 5. Fotos (Ruta absoluta de la Raspberry, accés directe)
+      - /home/piQuique/ptiProject/fotos_immich/admin:/home/piQuique/ptiProject/fotos_immich/admin
+
+volumes:
+  ollama:

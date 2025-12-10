@@ -1,0 +1,12 @@
+SPDX-License-Identifier: AGPL-3.0
+SPDX-License-Identifier: ISC
+SPDX-FileCopyrightText: Julien Veyssier
+SPDX-FileCopyrightText: Maplibre
+
+This file is generated from multiple sources. Included packages:
+- @maplibre/maplibre-gl-geocoder
+	- version: 1.9.1
+	- license: ISC
+- integration_openstreetmap
+	- version: 0.0.1
+	- license: AGPL-3.0

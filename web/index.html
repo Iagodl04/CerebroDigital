@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Cerebro Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Leaflet.js para el mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ... (Todo tu CSS existente va aquí) ... */
+
+        /* Fondo animado con partículas y grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 0%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            z-index: -2;
+            animation: morphGradient 15s ease-in-out infinite;
+        }
+
+        @keyframes morphGradient {
+            0%, 100% {
+                background:
+                    radial-gradient(ellipse at 20% 0%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                    radial-gradient(ellipse at 80% 100%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                    radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            }
+            50% {
+                background:
+                    radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                    radial-gradient(ellipse at 20% 80%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                    radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            }
+        }
+
+        /* Grid futurista */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Inputs futuristas */
+        input[type="date"] {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        input[type="date"]:hover {
+            border-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        input[type="date"]:focus {
+            border-color: #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            filter: invert(1) brightness(1.5);
+        }
+
+        /* Gradientes de texto mejorados */
+        .text-gradient {
+            background: linear-gradient(135deg, #00ffff 0%, #a78bfa 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Cards futuristas con efectos holográficos */
+        .card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #00ffff, #a78bfa, #ec4899, #00ffff);
+            border-radius: inherit;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            background-size: 300% 300%;
+            animation: gradientRotate 4s linear infinite;
+        }
+
+        @keyframes gradientRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(0, 255, 255, 0.2),
+                inset 0 0 40px rgba(0, 255, 255, 0.05);
+        }
+
+        /* Efecto de brillo en cards */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .card:hover::after {
+            left: 100%;
+        }
+
+        /* Botones futuristas */
+        .btn-futuristic {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .btn-futuristic::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn-futuristic:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-futuristic:active {
+            transform: scale(0.95);
+        }
+
+        /* Mapa */
+        #map {
+            widht: 100%;
+            height: 100%;
+            z-index: 1;
+            border-radius: 12px;
+            box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        /* Carrusel mejorado */
+        .carousel-container {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 255, 255, 0.5) transparent;
+        }
+
+        .carousel-container::-webkit-scrollbar { height: 6px; }
+        .carousel-container::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+        .carousel-container::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #00ffff, #a78bfa); border-radius: 10px; }
+
+        .carousel-item {
+            scroll-snap-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item:hover { transform: scale(1.05); }
+
+        /* Timeline mejorada */
+        .timeline-dot {
+            box-shadow: 0 0 15px currentColor;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 15px currentColor; }
+            50% { box-shadow: 0 0 25px currentColor; }
+        }
+
+        /* Loader futurista */
+        .loader-dot {
+            animation: loaderPulse 1.4s infinite ease-in-out both;
+        }
+
+        @keyframes loaderPulse {
+            0%, 80%, 100% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Keywords con efecto neón */
+        .keyword-tag {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .keyword-tag::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .keyword-tag:hover {
+            background: rgba(0, 255, 255, 0.2);
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .keyword-tag:hover::before {
+            left: 100%;
+        }
+
+        /* Animación de escaneo */
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+            animation: scan 8s linear infinite;
+            z-index: 100;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        /* --- INICIO: CSS PARA EL MODAL --- */
+        #modal-backdrop {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 40;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        #modal-container {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            z-index: 50;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        #event-modal.open #modal-backdrop {
+            opacity: 1;
+        }
+        #event-modal.open #modal-container {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        /* --- FIN: CSS PARA EL MODAL --- */
+
+    </style>
+</head>
+<body class="text-gray-200 min-h-screen flex items-center justify-center p-4">
+    <div class="scan-line"></div>
+    <div class="w-full max-w-4xl mx-auto p-[1px] rounded-2xl">
+        <main class="w-full bg-transparent p-6 md:p-8">
+            <!-- ... (Tu header y botones de fecha van aquí) ... -->
+            <header class="text-center mb-8 fade-in-up">
+                <h1 class="text-4xl md:text-5xl font-bold text-gradient">Tu Cerebro Digital</h1>
+                <p class="text-gray-400 mt-2 text-lg">Tu vida, conectada y resumida.</p>
+            </header>
+
+            <section class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 fade-in-up" style="animation-delay: 150ms;">
+                <input type="date" id="selected-date" class="rounded-lg px-4 py-3 text-white focus:outline-none w-full sm:w-auto">
+                <button id="memories-btn" class="btn-futuristic w-full sm:w-auto text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2 transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    Hace 1 Año
+                </button>
+            </section>
+
+            <div class="text-center mb-8 fade-in-up" style="animation-delay: 300ms;">
+                 <button id="generate-btn" class="btn-futuristic w-full sm:w-auto bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-bold py-3 px-8 rounded-lg flex items-center justify-center gap-2 transform mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    Generar Resumen con IA
+                </button>
+            </div>
+
+
+            <div id="results-container" class="hidden">
+                <div id="loader" class="text-center py-10 hidden"><div class="flex justify-center items-center space-x-2"><div class="loader-dot w-4 h-4 rounded-full bg-cyan-400"></div><div class="loader-dot w-4 h-4 rounded-full bg-cyan-400" style="animation-delay: 0.2s;"></div><div class="loader-dot w-4 h-4 rounded-full bg-cyan-400" style="animation-delay: 0.4s;"></div></div><p class="mt-4 text-gray-400">La IA está procesando tu día...</p></div>
+
+                <div id="results-content" class="hidden space-y-8">
+
+                    <section class="card p-6 rounded-2xl"><h2 class="text-2xl font-bold mb-4">Resumen del día: <span id="summary-date" class="text-gradient"></span></h2><p id="ai-summary" class="text-gray-300 leading-relaxed whitespace-pre-line"></p></section>
+
+                    <section id="carousel-card" class="card p-6 rounded-2xl hidden">
+                        <!-- ... (Tu carrusel va aquí) ... -->
+                        <h3 class="text-xl font-semibold text-gradient mb-4">Recuerdos Visuales</h3>
+                        <div class="relative">
+                            <div id="carousel-container" class="carousel-container flex overflow-x-auto snap-x snap-mandatory scroll-smooth rounded-lg"></div>
+                            <button id="carousel-prev" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition opacity-0 disabled:opacity-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                            <button id="carousel-next" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition opacity-0 disabled:opacity-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                        </div>
+                    </section>
+
+                    <section id="paperless-card" class="card p-6 rounded-2xl hidden">
+                        <!-- ... (Tus documentos de paperless van aquí) ... -->
+                        <h3 class="text-xl font-semibold text-gradient mb-4">Documentos del Día</h3>
+                        <div id="paperless-container" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            </div>
+                        <div id="paperless-empty" class="hidden text-center text-gray-500 py-4">
+                            <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                            No hay documentos para este día.
+                        </div>
+                    </section>
+
+                    <section class="card p-6 rounded-2xl">
+                        <!-- ... (Tus datos de salud van aquí) ... -->
+                        <h3 class="text-xl font-semibold text-gradient mb-4">Salud y Actividad</h3>
+                        <div id="fitness-data" class="grid grid-cols-2 gap-4 text-center"></div>
+                    </section>
+
+                    <section id="map-card" class="card p-6 rounded-2xl hidden">
+                        <!-- ... (Tu mapa va aquí) ... -->
+                        <h3 class="text-xl font-semibold text-gradient mb-4">Mapa de Actividad</h3><div class="aspect-video rounded-xl overflow-hidden"><div id="map" class="w-full h-full"></div></div>
+                    </section>
+
+                    <section class="card p-6 rounded-2xl"><h2 class="text-2xl font-bold mb-6 text-gradient">Eventos</h2><div id="timeline-container" class="space-y-8 relative border-l-2 border-cyan-500/20 ml-3"></div></section>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- --- INICIO: HTML DEL MODAL --- -->
+    <div id="event-modal" class="hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Fondo oscuro del modal -->
+        <div id="modal-backdrop" class="fixed inset-0"></div>
+
+        <!-- Contenedor del modal -->
+        <div id="modal-container" class="w-full max-w-lg">
+            <!-- Contenido del modal (Tarjeta) -->
+            <div class="card p-6 rounded-2xl">
+                <!-- Encabezado -->
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gradient">Detalles del Evento</h3>
+                    <button id="modal-close-btn" class="text-gray-400 hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+
+                <!-- Cuerpo del Modal -->
+                <div class="space-y-4">
+                    <!-- Título del Evento -->
+                    <div id="modal-title-content" class="text-xl font-semibold text-white"></div>
+
+                    <!-- Horario -->
+                    <div class="flex items-center gap-2 text-cyan-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span id="modal-time-content"></span>
+                    </div>
+
+                    <!-- Ubicación -->
+                    <div id="modal-location-container" class="flex items-center gap-2 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span id="modal-location-content"></span>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div id="modal-description-container" class="text-gray-400 border-t border-gray-700 pt-4">
+                        <p class="font-semibold text-gray-300 mb-2">Descripción:</p>
+                        <p id="modal-description-content" class="whitespace-pre-line"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- --- FIN: HTML DEL MODAL --- -->
+
+
+    <script>
+        // --- DOM Elements & Global State ---
+        const API_BASE = "http://192.168.1.10:8091";
+        const HEALTH_API_BASE = "http://192.168.1.10:8092";
+        const PAPERLESS_API_BASE = "http://192.168.1.10:8000";
+        const CALENDAR_API_BASE = "http://192.168.1.10:8093";
+        const IA_API_BASE = "http://192.168.1.10:8095"; // <--- NUEVA API IA
+        const PAPERLESS_API_TOKEN = "12baea9e28ea3b3b569ff2c0b7e14b0252cb999a";
+
+        // ... (Todos los demás elementos DOM: dateInput, generateBtn, etc.) ...
+        const dateInput = document.getElementById('selected-date');
+        const generateBtn = document.getElementById('generate-btn');
+        const memoriesBtn = document.getElementById('memories-btn');
+        const resultsContainer = document.getElementById('results-container');
+        const loader = document.getElementById('loader');
+        const resultsContent = document.getElementById('results-content');
+        const summaryDateEl = document.getElementById('summary-date');
+        const aiSummaryEl = document.getElementById('ai-summary');
+        const timelineContainer = document.getElementById('timeline-container');
+        const fitnessDataEl = document.getElementById('fitness-data');
+        const mapCard = document.getElementById('map-card');
+        const carouselCard = document.getElementById('carousel-card');
+        const carouselContainer = document.getElementById('carousel-container');
+        const carouselPrevBtn = document.getElementById('carousel-prev');
+        const carouselNextBtn = document.getElementById('carousel-next');
+
+        // --- INICIO: Elementos del Modal ---
+        const eventModal = document.getElementById('event-modal');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const modalTitle = document.getElementById('modal-title-content');
+        const modalTime = document.getElementById('modal-time-content');
+        const modalLocationContainer = document.getElementById('modal-location-container');
+        const modalLocation = document.getElementById('modal-location-content');
+        const modalDescriptionContainer = document.getElementById('modal-description-container');
+        const modalDescription = document.getElementById('modal-description-content');
+        // --- FIN: Elementos del Modal ---
+
+        let map = null;
+        let currentCarouselIndex = 0;
+        let currentTimelineEvents = []; // Almacenamos los eventos
+
+        // --- Event Listeners ---
+        dateInput.valueAsDate = new Date();
+        generateBtn.addEventListener('click', () => { if (dateInput.value) startGenerationProcess(dateInput.value); });
+        memoriesBtn.addEventListener('click', () => {
+            const d = new Date(dateInput.value); d.setFullYear(d.getFullYear() - 1);
+            dateInput.value = d.toISOString().split('T')[0];
+            startGenerationProcess(dateInput.value, true);
+        });
+        carouselPrevBtn.addEventListener('click', () => scrollCarousel(-1));
+        carouselNextBtn.addEventListener('click', () => scrollCarousel(1));
+
+        // --- INICIO: Listeners del Modal ---
+        modalCloseBtn.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', closeModal);
+        // --- FIN: Listeners del Modal ---
+
+
+        // --- Main Logic ---
+        function startGenerationProcess(date, isMemory = false) {
+            // ... (Tu lógica de loader y botones) ...
+            resultsContent.classList.add('hidden');
+            resultsContent.querySelectorAll('.fade-in-up').forEach(c => { c.classList.remove('fade-in-up'); c.style.animationDelay = ''; });
+            resultsContainer.classList.remove('hidden');
+            loader.classList.remove('hidden');
+            [generateBtn, memoriesBtn].forEach(b => { b.disabled = true; b.classList.add('opacity-50', 'cursor-not-allowed'); });
+
+            // Reducimos el timeout inicial para que la IA tenga tiempo de responder
+            // La IA puede tardar unos segundos, así que mostramos el loader mientras
+            (async () => {
+                try {
+                    const data = await fetchDataForDate(date, isMemory);
+                    renderResults(data);
+                    if (data.locations.length > 0) renderMap(data.locations);
+                } catch (e) {
+                    console.error(e);
+                    alert("Error obtenint dades. Revisa que el backend estigui actiu.");
+                } finally {
+                    loader.classList.add('hidden');
+                    resultsContent.classList.remove('hidden');
+                    resultsContent.querySelectorAll('.card').forEach((card, index) => {
+                        if (!card.classList.contains('hidden')) {
+                            card.classList.add('fade-in-up');
+                            card.style.animationDelay = `${index * 150}ms`;
+                        }
+                    });
+                    [generateBtn, memoriesBtn].forEach(b => { b.disabled = false; b.classList.remove('opacity-50', 'cursor-not-allowed'); });
+                }
+            })();
+        }
+
+        // --- INICIO: Funciones del Modal ---
+        function showEventModal(eventIndex) {
+            const event = currentTimelineEvents[eventIndex];
+            if (!event) return;
+
+            // 1. Rellenar los datos
+            modalTitle.textContent = event.title;
+
+            // Formatear la hora
+            if (event.time === '00:00' && event.end_time === '24:00') {
+                modalTime.textContent = 'Todo el día';
+            } else {
+                modalTime.textContent = `${event.time} - ${event.end_time}`;
+            }
+
+            // Mostrar/Ocultar Ubicación
+            if (event.location && event.location !== 'no tiene') {
+                modalLocation.textContent = event.location;
+                modalLocationContainer.classList.remove('hidden');
+            } else {
+                modalLocationContainer.classList.add('hidden');
+            }
+
+            // Mostrar/Ocultar Descripción
+            if (event.description && event.description !== 'no tiene') {
+                modalDescription.textContent = event.description;
+                modalDescriptionContainer.classList.remove('hidden');
+            } else {
+                modalDescriptionContainer.classList.add('hidden');
+            }
+
+            // 2. Mostrar el modal
+            eventModal.classList.remove('hidden');
+            eventModal.classList.add('open');
+        }
+
+        function closeModal() {
+            eventModal.classList.remove('open');
+            setTimeout(() => {
+                eventModal.classList.add('hidden');
+            }, 300); // Esperar a que termine la animación de salida
+        }
+        // --- FIN: Funciones del Modal ---
+
+
+        // ... (Todas tus funciones fetch: fetchImmichFromApi, fetchFitnessDataFromApi, fetchPaperlessFromApi) ...
+        async function fetchImmichFromApi(date) {
+            const res = await fetch(`${API_BASE}/photos?date=${encodeURIComponent(date)}`);
+            if (!res.ok) throw new Error(`Immich API HTTP ${res.status}`);
+            const photosResp = await res.json();
+
+            const immichData = photosResp.items.map(it => ({
+                time: it.takenAt ? (new Date(it.takenAt)).toTimeString().slice(0,5) : "",
+                url:  `${API_BASE}${it.thumb}`,
+                fullUrl: `${API_BASE}${it.full}`,
+                alt:  it.id,
+                location: (it.lat != null && it.lon != null)
+                ? { lat: it.lat, lon: it.lon, label: it.takenAt || "Foto" }
+                : null
+            }));
+
+            const locations = immichData.filter(d => d.location).map(d => d.location);
+            return { immichData, locations, count: photosResp.count };
+        }
+
+
+        async function fetchFitnessDataFromApi(date) {
+            const res = await fetch(`${HEALTH_API_BASE}/health?date=${encodeURIComponent(date)}`);
+            if (!res.ok) throw new Error(`Health API HTTP ${res.status}`);
+            const fitnessData = await res.json();
+            return fitnessData;
+        }
+
+
+            let paperlessTagMap = null;
+
+        async function fetchPaperlessTags() {
+            if (paperlessTagMap) return;
+
+            try {
+                const res = await fetch(`${PAPERLESS_API_BASE}/api/tags/`, {
+                    headers: { 'Authorization': `Token ${PAPERLESS_API_TOKEN}` }
+                });
+                if (!res.ok) throw new Error(`Paperless Tags API HTTP ${res.status}`);
+                const tagsData = await res.json();
+
+                paperlessTagMap = new Map();
+                tagsData.results.forEach(tag => {
+                    paperlessTagMap.set(tag.id, tag.name);
+                });
+            } catch (e) {
+                console.warn("Fallo al cargar tags de Paperless:", e);
+                paperlessTagMap = new Map();
+            }
+        }
+
+        async function fetchPaperlessFromApi(date) {
+            await fetchPaperlessTags();
+
+            const requestAllPages = async (url) => {
+                let collected = [];
+                let pageCount = 0;
+                const maxPages = 10;
+
+                while (url && pageCount < maxPages) {
+                    const res = await fetch(url, {
+                        headers: { 'Authorization': `Token ${PAPERLESS_API_TOKEN}` }
+                    });
+                    if (!res.ok) throw new Error(`Paperless Docs API HTTP ${res.status}`);
+                    const body = await res.json();
+
+                    const pageItems = Array.isArray(body.results) ? body.results : (Array.isArray(body) ? body : []);
+                    collected = collected.concat(pageItems);
+
+                    url = (body && body.next) ? body.next : null;
+                    pageCount++;
+                }
+                return collected;
+            };
+
+            const normalizeDate = (dateStr) => {
+                if (!dateStr) return null;
+                if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+                    return dateStr;
+                }
+                const match = dateStr.match(/^(\d{4}-\d{2}-\d{2})/);
+                return match ? match[1] : null;
+            };
+
+            const clientFilterByDate = (docs, targetDate) => {
+                return docs.filter(doc => {
+                    const createdDate = normalizeDate(doc.created);
+                    const addedDate = normalizeDate(doc.added);
+                    return createdDate === targetDate || addedDate === targetDate;
+                });
+            };
+
+            try {
+                console.log(`[Paperless] Buscando documentos para: ${date}`);
+                let fetchedDocs = [];
+
+                let url1 = `${PAPERLESS_API_BASE}/api/documents/?created__date=${encodeURIComponent(date)}&page_size=100`;
+                fetchedDocs = await requestAllPages(url1);
+                console.log(`[Paperless] (Intento 1) created__date devolvió ${fetchedDocs.length} documentos`);
+
+                if (!fetchedDocs || fetchedDocs.length === 0) {
+                    let url2 = `${PAPERLESS_API_BASE}/api/documents/?added__date=${encodeURIComponent(date)}&page_size=100`;
+                    fetchedDocs = await requestAllPages(url2);
+                    console.log(`[Paperless] (Intento 2) added__date devolvió ${fetchedDocs.length} documentos`);
+                }
+
+                let filteredDocs = clientFilterByDate(fetchedDocs, date);
+                console.log(`[Paperless] Filtro cliente (1+2) dejó ${filteredDocs.length} documentos (de ${fetchedDocs.length})`);
+
+                if (!filteredDocs || filteredDocs.length === 0) {
+                    console.log('[Paperless] (Intento 3) Filtros de API no funcionaron o no encontraron nada, usando filtro cliente con rango...');
+                    const targetDate = new Date(date + 'T00:00:00');
+                    const startDate = new Date(targetDate);
+                    startDate.setDate(startDate.getDate() - 15);
+                    const endDate = new Date(targetDate);
+                    endDate.setDate(endDate.getDate() + 15);
+                    const startStr = startDate.toISOString().split('T')[0];
+                    const endStr = endDate.toISOString().split('T')[0];
+
+                    const url3_created = `${PAPERLESS_API_BASE}/api/documents/?created__date__gte=${startStr}&created__date__lte=${endStr}&page_size=100`;
+                    let docsRangeCreated = await requestAllPages(url3_created);
+                    console.log(`[Paperless] Descargados ${docsRangeCreated.length} docs (rango created)`);
+
+                    const url3_added = `${PAPERLESS_API_BASE}/api/documents/?added__date__gte=${startStr}&added__date__lte=${endStr}&page_size=100`;
+                    let docsRangeAdded = await requestAllPages(url3_added);
+                    console.log(`[Paperless] Descargados ${docsRangeAdded.length} docs (rango added)`);
+
+                    const allDocsMap = new Map();
+                    docsRangeCreated.forEach(doc => allDocsMap.set(doc.id, doc));
+                    docsRangeAdded.forEach(doc => allDocsMap.set(doc.id, doc));
+                    const allDocs = Array.from(allDocsMap.values());
+                    console.log(`[Paperless] Total docs en rango (únicos): ${allDocs.length}`);
+
+                    filteredDocs = clientFilterByDate(allDocs, date);
+                    console.log(`[Paperless] Filtro cliente (3) dejó ${filteredDocs.length} documentos`);
+                }
+
+                if (!filteredDocs || filteredDocs.length === 0) return [];
+
+                return filteredDocs.map(doc => {
+                    let tagNames = [];
+                    if (Array.isArray(doc.tags) && doc.tags.length > 0) {
+                        if (typeof doc.tags[0] === 'object') {
+                            tagNames = doc.tags.map(t => t.name || t.title || t.id).sort();
+                        } else {
+                            tagNames = doc.tags.map(tagId => paperlessTagMap.get(tagId) || 'Sin Etiqueta').sort();
+                        }
+                    }
+                    return {
+                        type: 'paperless',
+                        name: doc.original_file_name || doc.title || `Documento ${doc.id}`,
+                        tags: tagNames,
+                        document_url: `${PAPERLESS_API_BASE}/api/documents/${doc.id}/preview/`,
+                        _meta: { created: doc.created, added: doc.added }
+                    };
+                });
+            } catch (e) {
+                console.error("Paperless fetch error:", e);
+                return [];
+            }
+        }
+
+        async function fetchCalendarDataFromApi(date) {
+            try {
+                const res = await fetch(`${CALENDAR_API_BASE}/calendar?date=${encodeURIComponent(date)}`);
+                if (!res.ok) {
+                    console.warn(`Calendar API HTTP ${res.status}`);
+                    return [];
+                }
+                const data = await res.json();
+                return data;
+            } catch (e) {
+                console.error("Error al contactar la API de Calendario:", e);
+                return [];
+            }
+        }
+
+
+        async function fetchDataForDate(date, isMemory) {
+            let immichData = [];
+            let locations = [];
+            try {
+                const immich = await fetchImmichFromApi(date);
+                immichData = immich.immichData;
+                locations  = immich.locations;
+            } catch (e) {
+                console.warn("Immich API fallida, ús de mocks:", e);
+                immichData = mockImmichData(date);
+                locations  = immichData.filter(d => d.location).map(d => d.location);
+            }
+
+            let fitnessData;
+            try {
+                fitnessData = await fetchFitnessDataFromApi(date);
+            } catch (e) {
+                console.warn("Health API fallida, mostrant 0:", e);
+                fitnessData = { steps: 0, sleep: 0.0 };
+            }
+
+            let paperlessData;
+            try {
+                paperlessData = await fetchPaperlessFromApi(date);
+            } catch (e) {
+                console.warn("Paperless API fallida, mostrant 0:", e);
+                paperlessData = [];
+            }
+
+            const calendarData  = await fetchCalendarDataFromApi(date);
+
+            // Guardamos los eventos de calendario en la variable global
+            currentTimelineEvents = [
+                ...calendarData
+            ].sort((a, b) => a.time.localeCompare(b.time));
+
+            const timelineEvents = currentTimelineEvents; // Usamos la variable global
+
+            const keywords = [];
+
+            // --- AQUÍ ES DONDE CONECTAMOS CON LA IA ---
+            let summary = "Generando resumen inteligente...";
+            try {
+                const res = await fetch(`${IA_API_BASE}/diario/${date}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    summary = data.resumen;
+                } else {
+                    summary = "La IA no pudo generar el resumen hoy. (Error del servidor)";
+                }
+            } catch (e) {
+                console.error("Error contactando IA API:", e);
+                // Si falla la IA, usamos el mock como plan B
+                summary = mockAISummary({
+                    date, immichData, paperlessData, calendarData, fitnessData
+                });
+                summary = "(Modo Offline) " + summary;
+            }
+
+            return { date, summary, timelineEvents, keywords, fitnessData, locations, immichData, paperlessData };
+        }
+
+
+        function renderResults(data) {
+            summaryDateEl.textContent = new Date(data.date + 'T00:00:00').toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+            aiSummaryEl.textContent = data.summary;
+            // --- CAMBIO: Pasar el índice del evento al renderizar ---
+            timelineContainer.innerHTML = data.timelineEvents.map((event, index) => renderTimelineItem(event, index)).join('');
+
+            fitnessDataEl.innerHTML = `<div><div class="text-2xl font-bold text-gradient">${data.fitnessData.steps.toLocaleString('es-ES')}</div><div class="text-sm text-gray-400">Pasos</div></div><div><div class="text-2xl font-bold text-gradient">${data.fitnessData.sleep}h</div><div class="text-sm text-gray-400">Sueño</div></div>`;
+
+            const healthCard = fitnessDataEl.closest('.card');
+            const hasHealthData =
+                (typeof data.fitnessData.steps === 'number' && data.fitnessData.steps > 0) ||
+                (typeof data.fitnessData.sleep === 'number' && data.fitnessData.sleep > 0);
+
+            if (healthCard) {
+                healthCard.classList.toggle('hidden', !hasHealthData);
+            }
+
+            carouselCard.classList.toggle('hidden', data.immichData.length === 0);
+            if (data.immichData.length > 0) renderCarousel(data.immichData);
+
+            mapCard.classList.toggle('hidden', data.locations.length === 0);
+            renderPaperlessModule(data.paperlessData);
+
+            const timelineCard = timelineContainer.closest('.card');
+            timelineCard.classList.toggle('hidden', !data.timelineEvents || data.timelineEvents.length === 0);
+        }
+
+        // ... (Tu renderCarousel, scrollCarousel, updateCarouselButtons, renderMap, renderPaperlessModule) ...
+        function renderCarousel(photos) {
+            carouselContainer.innerHTML = photos.map(photo => `
+                <div class="carousel-item flex-shrink-0 w-full h-64 md:h-96 snap-center p-2">
+                    <img src="${photo.url}" alt="${photo.alt}" class="w-full h-full object-cover rounded-lg">
+                </div>
+            `).join('');
+            const showButtons = photos.length > 1;
+            carouselPrevBtn.classList.toggle('opacity-0', !showButtons);
+            carouselNextBtn.classList.toggle('opacity-0', !showButtons);
+            currentCarouselIndex = 0;
+            updateCarouselButtons(photos.length);
+        }
+
+        function scrollCarousel(direction) {
+            const items = carouselContainer.querySelectorAll('.carousel-item');
+            currentCarouselIndex = (currentCarouselIndex + direction + items.length) % items.length;
+            items[currentCarouselIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            updateCarouselButtons(items.length);
+        }
+
+        function updateCarouselButtons(totalItems) {
+            carouselPrevBtn.disabled = currentCarouselIndex === 0;
+            carouselNextBtn.disabled = currentCarouselIndex === totalItems - 1;
+        }
+
+        /*function renderMap(locations) {
+            if (map) { map.remove(); map = null; }
+            if (locations.length === 0) return;
+            map = L.map('map').setView([locations[0].lat, locations[0].lon], 13);
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }).addTo(map);
+            locations.forEach(loc => L.marker([loc.lat, loc.lon]).addTo(map).bindPopup(loc.label || 'Ubicación'));
+        }*/
+
+        function renderMap(locations) {
+            // Si no hay ubicaciones, limpiamos y salimos
+            if (!locations || locations.length === 0) {
+                if (map) {
+                    map.remove();
+                    map = null;
+                }
+                return;
+            }
+
+            // Por si acaso, nos aseguramos de que la tarjeta del mapa no esté oculta
+            mapCard.classList.remove('hidden');
+
+            // Si ya había un mapa, lo quitamos para empezar limpio
+            if (map) {
+                map.remove();
+                map = null;
+            }
+
+            // Crear el mapa centrado en la primera ubicación
+            map = L.map('map').setView([locations[0].lat, locations[0].lon], 13);
+
+            L.tileLayer(
+                'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+                {
+                    attribution: '&copy; OpenStreetMap &copy; CARTO',
+                    subdomains: 'abcd',
+                    maxZoom: 20
+                }
+            ).addTo(map);
+
+            // Añadir marcadores
+            locations.forEach(loc => {
+                L.marker([loc.lat, loc.lon])
+                    .addTo(map)
+                    .bindPopup(loc.label || 'Ubicación');
+            });
+
+            // 🔧 TRUCO IMPORTANTE:
+            // Darle un pequeño margen para que el layout/animaciones se asienten y
+            // luego recalcular el tamaño real del mapa.
+            setTimeout(() => {
+                map.invalidateSize();
+            }, 200);
+        }
+
+
+        function renderPaperlessModule(documents) {
+            const container = document.getElementById('paperless-container');
+            const emptyEl = document.getElementById('paperless-empty');
+            const card = document.getElementById('paperless-card');
+
+            container.innerHTML = '';
+
+            if (!documents || documents.length === 0) {
+                card.classList.add('hidden');
+                emptyEl.classList.remove('hidden');
+                container.classList.add('hidden');
+                return;
+            }
+
+            card.classList.remove('hidden');
+            emptyEl.classList.add('hidden');
+            container.classList.remove('hidden');
+
+            const docIcon = `<svg class="w-16 h-16 text-gray-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>`;
+
+            documents.forEach(doc => {
+                const docHtml = `
+                    <a href="${doc.document_url}" target="_blank" rel="noopener noreferrer"
+                    class="block group p-4 rounded-lg bg-black/30 hover:bg-black/50 transition-colors text-center transform hover:scale-105">
+                        <div class="h-20 flex items-center justify-center">${docIcon}</div>
+                        <div class="mt-2 text-sm text-gray-300 group-hover:text-cyan-300 truncate" title="${doc.name}">
+                            ${doc.name}
+                        </div>
+                    </a>
+                `;
+                container.innerHTML += docHtml;
+            });
+        }
+
+
+        // --- CAMBIO: Modificar renderTimelineItem para que sea clicable ---
+        function renderTimelineItem(event, index) { // Añadimos 'index'
+            const icons = {
+                calendar: { svg: '<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>', color: 'text-red-400', dot: 'bg-red-400' }
+            };
+            const item = icons[event.type];
+            if (!item) return '';
+
+            // Solo mostramos el título en la línea de tiempo. El resto se ve en el modal.
+            const content = `<div class="font-semibold">${event.title}</div>`;
+
+            // Añadimos 'onclick' y 'cursor-pointer'
+            return `
+            <div class="relative pl-8">
+                <div class="absolute -left-[7.5px] top-1 w-4 h-4 ${item.dot} rounded-full ring-4 ring-[#000] timeline-dot flex items-center justify-center ${item.color}">${item.svg}</div>
+                <div class="flex justify-between items-center">
+                    <time class="text-sm font-semibold text-gray-400">${event.time}</time>
+                </div>
+                <div
+                    class="p-4 rounded-lg mt-2 bg-black/20 hover:bg-black/40 transition cursor-pointer"
+                    onclick="showEventModal(${index})">
+                    ${content}
+                </div>
+            </div>`;
+        }
+
+        // ... (Tus funciones mock: mockImmichData, mockFitnessData, mockAISummary) ...
+        function mockImmimockImmichData(date) {
+            if (new Date(date).getDay() % 3 === 0) return [];
+            return [
+                {
+                    time: '14:15',
+                    url: 'https://placehold.co/800x600/f97316/ffffff?text=Comida',
+                    alt: 'Almuerzo en restaurante',
+                    location: { lat: 41.3851, lon: 2.1734, label: 'Restaurante Céntrico' }
+                },
+                {
+                    time: '19:30',
+                    url: 'https://placehold.co/800x600/8b5cf6/ffffff?text=Atardecer',
+                    alt: 'Paseo por el parque',
+                    location: { lat: 41.4036, lon: 2.1744, label: 'Parque de la Ciudadela' }
+                },
+                {
+                    time: '20:00',
+                    url: 'https://placehold.co/800x600/10b981/ffffff?text=Ciudad',
+                    alt: 'Vistas de la ciudad'
+                }
+            ];
+        }
+
+        function mockFitnessData(date) {
+            return {
+                steps: Math.floor(Math.random() * 8000) + 2000,
+                sleep: (Math.random() * 3 + 5.5).toFixed(1)
+            };
+        }
+
+        function mockAISummary({ date, immichData, paperlessData, calendarData, fitnessData }) {
+            let summary =
+                `El ${new Date(date + 'T00:00:00').toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' })}, fue un día interesante.\n\n`;
+
+            if (calendarData.length > 0) {
+                summary += `Tuviste ${calendarData.length} ${calendarData.length > 1 ? 'eventos programados' : 'evento programado'}. `;
+            }
+            if (paperlessData.length > 0) {
+                summary += `Archivaste ${paperlessData.length} ${paperlessData.length > 1 ? 'documentos' : 'documento'}. `;
+            }
+            if (immichData.length > 0) {
+                summary += `Capturaste ${immichData.length} ${immichData.length > 1 ? 'recuerdos' : 'recuerdo'}. `;
+            }
+            summary += `\nFísicamente, fue un día activo con **${fitnessData.steps.toLocaleString('es-ES')}** pasos. ` +
+                    `Dormiste **${fitnessData.sleep}** horas.`;
+            return summary;
+        }
+    </script>
+</body>
+</html>

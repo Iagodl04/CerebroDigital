@@ -1,0 +1,27 @@
+OC.L10N.register(
+    "integration_openstreetmap",
+    {
+    "OpenStreetMap" : "OpenStreetMap",
+    "Map location (by OpenStreetMap)" : "Ubicación en el mapa (por OpenStreetMap)",
+    "OpenStreetMap locations" : "Ubicaciones de OpenStreetMap",
+    "Bad HTTP method" : "Método HTTP incorrecto",
+    "Bad credentials" : "Credenciales incorrectas",
+    "Connected accounts" : "Cuentas conectadas",
+    "OpenStreetMap integration" : "Integración de OpenStreetMap",
+    "Integration of OpenStreetMap" : "Integración de OpenStreetMap",
+    "OpenStreetMap integration provides a search provider for locations, a reference\nprovider to render location links from various map services (OpenStreetMap, Google maps...) and a custom link picker\ncomponent to quickly insert a location link by searching or selecting a point on an (awesome) interactive map." : "La integración de OpenStreetMap proporciona un proveedor de búsqueda para ubicaciones, un proveedor de referencia \n      para mostrar enlaces de ubicación desde varios servicios de mapas (OpenStreetMap, Google Maps, entre otros) y un componente \n      personalizado de selección de enlaces para insertar rápidamente un enlace de ubicación mediante búsqueda o selección de un punto en un mapa interactivo (increíble).",
+    "OpenStreetMap options saved" : "Opciones de OpenStreetMap guardadas",
+    "Failed to save OpenStreetMap options" : "Error al guardar las opciones de OpenStreetMap",
+    "Maptiler API key" : "Clave de API de Maptiler",
+    "Enable searching for locations" : "Habilitar búsqueda de ubicaciones",
+    "Warning, everything you type in the Unified Search menu will be sent to OpenStreetMap's Nominatim service." : "Advertencia, todo lo que escribas en el menú de Búsqueda Unificada se enviará al servicio Nominatim de OpenStreetMap.",
+    "Enable OpenStreetMap link previews" : "Habilitar vistas previas de enlaces de OpenStreetMap",
+    "Prefer simple OpenStreetMap frame" : "Preferir marco simple de OpenStreetMap",
+    "Enable navigation link" : "Habilitar enlace de navegación",
+    "Search on the map" : "Buscar en el mapa",
+    "Search with Nominatim to get an OpenStreetMap link" : "Buscar con Nominatim para obtener un enlace de OpenStreetMap",
+    "Link could not be copied to clipboard" : "No se pudo copiar el enlace al portapapeles",
+    "Include marker" : "Incluir marcador",
+    "Generate location link" : "Generar enlace de ubicación"
+},
+"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

@@ -1,0 +1,19 @@
+SPDX-License-Identifier: AGPL-3.0-or-later
+SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: Eduardo San Martin Morote
+SPDX-FileCopyrightText: Nextcloud GmbH and Nextcloud contributors
+SPDX-FileCopyrightText: atomiks
+
+This file is generated from multiple sources. Included packages:
+- @floating-ui/core
+	- version: 1.7.3
+	- license: MIT
+- @floating-ui/utils
+	- version: 0.2.10
+	- license: MIT
+- @nextcloud/vue
+	- version: 9.1.0
+	- license: AGPL-3.0-or-later
+- vue-router
+	- version: 4.6.3
+	- license: MIT

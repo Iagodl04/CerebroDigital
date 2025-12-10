@@ -1,0 +1,17 @@
+SPDX-License-Identifier: AGPL-3.0
+SPDX-License-Identifier: MIT
+SPDX-License-Identifier: undefined
+SPDX-FileCopyrightText: Julien Veyssier
+SPDX-FileCopyrightText: Rob Cresswell <robcresswell@pm.me>
+SPDX-FileCopyrightText: maplibre-gl developers
+
+This file is generated from multiple sources. Included packages:
+- integration_openstreetmap
+	- version: 0.0.1
+	- license: AGPL-3.0
+- maplibre-gl
+	- version: undefined
+	- license: undefined
+- vue-material-design-icons
+	- version: 5.3.1
+	- license: MIT

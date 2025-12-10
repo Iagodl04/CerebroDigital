@@ -1,0 +1,2 @@
+import{m as e}from"./mapUtils-m7e-c8Iy.chunk.mjs";const a={name:"VMarker",components:{},props:{lngLat:{type:[Object,Array],required:!0},color:{type:String,default:void 0},map:{type:Object,required:!0}},data(){return{ready:!1,mapObject:null}},computed:{},watch:{lngLat(t){this.mapObject.setLngLat(t)}},mounted(){this.init()},unmounted(){this.mapObject.remove()},methods:{init(){this.mapObject=new e.Marker({color:this.color}).setLngLat(this.lngLat).addTo(this.map),this.ready=!0}},render(t){return null}};export{a as _};
+//# sourceMappingURL=VMarker-CWNB22yj.chunk.mjs.map

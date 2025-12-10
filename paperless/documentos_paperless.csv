@@ -1,0 +1,1716 @@
+id,title,modified,filename,page_count,content
+5,aso-grau-10-tardor24-25-parcial1-1,2025-10-13 13:15:53.106215,0000005.pdf,8,"Nom: DNI:
+ADMINISTRACIÓ DE SISTEMES OPERATIUS – Grau en Informàtica
+Control 1, 31 d’Octubre de 2024
+
+L'examen és individual
+Responeu en l'espai assignat
+Indiqueu els vostres COGNOMS, NOM i DNI (per aquest ordre), a dalt d'aquest full
+L'examen és sense llibres ni apunts
+És obligatori justificar totes les respostes
+Temps: 2 hora (No es pot sortir abans de mitja hora)
+
+Pregunta 1 (2 punts)
+Respon les següents preguntes curtes
+
+1. Tenim un servidor d’aplicacions propietàries, se sap que les aplicacions ocupen un total de
+125GB, a banda hi ha 10 usuaris amb uns requisits d’espai de 25GB per cap. Quina de les
+següents alternatives escolliries per poder servir de forma adequada les necessitats dels
+usuaris? (0,5 Punts)
+
+
+a) SO: Debian b) SO: Debian c) SO: Debian
+Particions: Particions: Particions:
+50 GB pel sistema 40 GB pel sistema 350 GB pel sistema i
+125GB per aplicacions 150GB per aplicacions aplicacions
+250GB per a usuaris 300GB per a usuaris 500GB per a usuaris
+
+d) SO: Debian e) SO: Debian f) SO: Debian
+Particions: Particions: Particions:
+Una sola partició d’1 TB 20 GB pel sistema 50 GB pel sistema
+per tot el sistema, 200GB per aplicacions 100GB per aplicacions
+aplicacions i usuaris
+500GB per a usuaris 350GB per a usuaris
+Justifica aquí la elecció:
+
+
+
+
+2. Indica quin procediment s’ha de seguir per realitzar la compilació d’una aplicació utilitzant
+cmake i codi font. Justifica la resposta. (0.5 Punts)
+3. Indica quina comanda i amb quins paràmetres es gestionen els serveis amb systemd. Només
+cal que indiquis els paràmetres més habituals i què fan (0.5 Punts)
+
+
+
+
+4. Descriu què és i per a que s’utilitza un grup de sistema. (0.5 Punts)
+Pregunta 2 – Monitorització del sistema (3 Punts)
+Tenim un portàtil d’un usuari amb 8 CPUs lògiques i un disc HDD. En un moment donat tenim la
+següent sortida del top:
+             
+          
+%          a      
+          
+          
+
+    V E   % MEM ME 
+           
+           
+           _
+           
+              
+           
+           
+           
+            
+            
+           _
+           
+
+
+1. Defineix què són els camps    % i  del top i quina utilitat té saber
+què volen dir. (0.5 Punts)
+
+
+
+
+2. Indica el significat teòric del Load Average i interpreta el de la traça anterior. Justifica la
+resposta (0.5 Punts)
+3. Defineix què són els camps de memòria buff/cache i explica com es gestiona a nivell de
+sistema. (0.5 Punts)
+
+
+
+
+4. Quin és el valor màxim que podem veure al camp %CPU de la llista de processos quan es
+mostren processos (tasks) al top?. Justifica la resposta (0.25 Punts)
+
+
+
+
+5. Defineix el significat dels camps us, sy, ni, wa, hi, si, st de la línia CPU del top? (0.75 Punts)
+6. Què implica quan el temps de wa és com el de la traça del top? (0.25 Punts)
+
+
+
+
+7. Indica el significat dels processos que ocupen 0 bytes de memòria. (0.25 Punts)
+Pregunta 3 – General (2 Punts)
+Respon les següents preguntes marcant la casella correcta. Hi ha una resposta vàlida per pregunta.
+Cada resposta correcta val 0.5 punts. LES RESPOSTES INCORRECTES RESTEN 0.25 punts.
+1. La comanda: root# renice -20 12345:
+□ a) Resta 20 a la prioritat del procés
+□ b) Posa el nice del procés a -20
+□ c) Fa que el procés tingui CPU sempre que la necessiti independentment de la resta de
+processos
+
+2. Què proporciona la compilació de software respecte a la utilització de binaris precompilats?
+□ a) Més control sobre l’aplicació i adaptació a la plataforma hardware utilitzada
+□ b) Més velocitat i simplicitat a l’hora d’instal·lar-la
+□ c) Millora la integració dins del sistema operatiu
+
+3. Quina de les següents consideracions sobre la taula de particions GPT és correcta
+□ a) Té un límit de 128 particions i se n’identifica el tipus a través d’un UUID
+□ b) Permet un màxim de 3 particions primàries i una extesa
+□ c) Complementa a MBR en funcionalitats per poder coexistir en un sistema
+
+4. Segons el codi d’ètica de l’administrador, tria la més adequada:
+□ a) Hem d’ajudar als usuaris amb el que els calgui, inclús si això implica espiar què fan ens
+ho diguin
+□ b) S’ha de ser honest i deixar al marge els temes personals en l’entorn laboral
+□ c) Totes les anteriors són certes
+Pregunta 4 – General (3 Punts)
+Donada la següent situació inicial d'un directori dins del nostre sistema de fitxers:
+a@aa  a
+
+a 
+  a   O   
+     O   
+  a   O   
+   a  O   
+
+
+a 
+  a   O   
+  a   O   
+     O   
+   a  O   
+
+
+a 
+   a  O   
+  a   O   
+  a a  O   
+
+a~ a
+
+Nota: Per defecte un usuari només pertany al grup que té el mateix nom que ell.
+Nota2: Assumeix que cada pregunta és independent, o sigui que l’efecte de les comandes NO es propaga a les altres
+preguntes.
+Respon JUSTIFICANT cada resposta a les següents preguntes. Les preguntes sense justificació no
+seran valorades.
+1. Indica si funcionaria i quins permisos, propietari i grup tindria un fitxer creat amb la
+comanda:
+@aa  a > _ (0.5 Punts)
+
+
+
+
+2. Indica si funcionaria i perquè la següent comanda: (0.25 Punts)
+@aa   
+
+
+
+
+3. Indica si funcionaria i perquè la següent comanda: (0.5 Punts)
+a@aa   
+4. Indica si funcionaria la següent comanda:
+a@aa    (0.5 Punts)
+
+
+
+
+5. Indica si funcionaria i perquè la següent comanda: (0.5 Punts)
+a@aa   
+
+
+
+
+6. Volem oferir un directori del nostre home: aa_ a tots els usuaris
+del grup ue, però al mateix temps volem restringir que puguin accedir de forma
+senzilla al directori a i als altres subdirectoris que hi pugui haver. Indica la
+millor manera de poder aconseguir això modificant els permisos dels directoris que
+creguis oportú.
+Pista: potser et cal canviar els permisos de més d’un directori! (0.75 Punts)"
+4,Networks - 07-Networking_en,2025-10-13 13:13:46.793122,0000004.pdf,69,"Networks
+
+René Serral-Gracià1
+1 Universitat Politècnica de Catalunya (UPC)
+
+
+
+April 2, 2024
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Lectures
+
+
+1 System administration introduction
+2 Operating System installation
+3 User management
+4 Application management
+5 System monitoring
+6 Filesystem Maintenance
+7 Network services
+8 Security and Protection
+9 Introduction to Public Cloud
+
+
+
+R. Serral-Gracià, et. al Networks 2
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Outline
+1 Introduction
+Goals
+Previous Considerations
+Network Address Translation
+Firewall
+
+2 Servers
+
+3 Service Brokers
+
+4 Pure services
+
+5 Network le Sharing
+
+6 Monitoring R. Serral-Gracià, et. al Networks 3
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Goals
+
+
+Knowledge
+
+Main services and networking protocols
+Superserver, portmapper, DNS, FTP, WWW, e-mail
+
+Abilities
+
+Service congurations
+Superserver
+DNS
+FTP
+WWW
+E-Mail
+
+
+R. Serral-Gracià, et. al Networks 4
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Network admin considerations (I)
+
+
+
+Security measures
+
+Never execute services with superuser privileges
+Expose only necessary services – rewalls
+Congure carefully all the offered services
+Never leave default congurations
+Disable/Remove unused services
+Monitor the service’s logs
+Check for security issues – be up to date
+
+
+
+
+R. Serral-Gracià, et. al Networks 5
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Network admin considerations (and II)
+
+
+Port classication
+
+Privileged ports: 0 - 1023
+Controlled and assigned by IANA
+Only privileged users (root) mai install services to those
+ports
+Registered ports: 1024 - 49151
+Not controlled but registered by IANA
+Registry about services using those ports –
+/etc/services
+Dynamic ports: 49152 - 65535
+Used for temporary connections
+
+
+
+R. Serral-Gracià, et. al Networks 6
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+/etc/services
+Relates services with corresponding port number
+various applications use it (netstat, . . . )
+servicename port/protocol alias list
+
+
+
+echo 7/tcp
+echo 7/udp
+systat 11/tcp users
+systat 11/udp users
+ftp-data 20/tcp
+ftp-data 20/udp
+# 21 is registered to ftp, but also used by fsp
+ftp 21/tcp
+ftp 21/udp fsp fspd
+ssh 22/tcp
+ssh 22/udp
+telnet 23/tcp
+telnet 23/udp
+# 24 - private mail system
+smtp 25/tcp mail
+smtp 25/udp mail
+domain 53/tcp
+domain 53/udp
+http 80/tcp www www-http
+http 80/udp www www-http
+
+
+
+R. Serral-Gracià, et. al Networks 7
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Network Address Translation – NAT
+
+
+Router translates internal addresses by one (or various) of
+its own
+Allows using a reserved IP (pool) and keep connectivity to
+the outside
+The router remembers the output connections to identify its
+answers
+Output connection:
+192.168.1.25 (port 1085) → 212.106.192.142 (1085)
+Reply connection:
+212.106.192.142 (1085) → 192.168.1.25 (1085)
+
+Tools: iptables (SNAT, MASQUERADE), dnsmasq
+
+
+
+R. Serral-Gracià, et. al Networks 8
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+NAT collateral effects
+
+Private addresses are not visible from the outside
+Attacks may only fall to the router – except over ongoing
+connections
+Network security depednds on router security
+Internal machines cannot offer services to the outside
+Except when using Destination Network Address
+Translation (DNAT)
+Important performance penalty for the network
+All external connections go through a single router
+Each packet requires some CPU time for processing
+Some services do not behave properly when using NAT
+Those establishing connections to the inside
+FTP, IRC, Netmeeting, . . .
+
+
+R. Serral-Gracià, et. al Networks 9
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Destination Address Translation (DNAT)
+
+
+Indicate to the NAT router it must forward some input
+connections to a particular machine
+Map router ports to some internal machine
+
+
+
+
+Eines: iptables (DNAT)
+
+
+
+R. Serral-Gracià, et. al Networks 10
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Firewall
+
+
+Server that determines which connections may be established
+between two networks
+
+It typically works at network and transport layers
+In general application details are not known
+It can keep connection status (Connection Tracking)
+It allows related connections: “replies“
+
+
+
+
+R. Serral-Gracià, et. al Networks 11
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Firewall == Security?
+
+
+
+A rewall is another piece of the overall security of a
+system
+Its use can potentially offer a false sense of security
+Other aspects cannot be neglected
+Correct application conguration
+Perform regular security updates on installed software
+Limit concurrent connections
+Other security tools in the private network and servers are
+still necessary
+
+
+
+
+R. Serral-Gracià, et. al Networks 12
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Outline
+1 Introduction
+
+2 Servers
+Server types
+
+3 Service Brokers
+
+4 Pure services
+
+5 Network le Sharing
+
+6 Monitoring
+
+7 Networking Example
+R. Serral-Gracià, et. al Networks 13
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Server types
+
+
+Connection oriented
+The server keeps status about the different sessions
+Better performance
+Less error resilience
+Connectionless
+There is no status about the client connections
+There are no sessions
+Requests must be self contained
+Client request must contain all the required information
+Better failure resilience and recovery
+
+
+
+
+R. Serral-Gracià, et. al Networks 14
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Server types – Depending authority
+Primary
+They keep a copy of all the information
+If there is mismatch in the stored information the primary
+takes precedence
+There is one per service
+Secondary
+Keep copies of the information
+Performing periodic updates with the primary
+There can be more than one per service
+Load balancing
+Are an implicit backup of the primary
+Cache (and/or proxies)
+Keep –partial– copies of the most used information
+More than one per service
+Better performance
+They can add security checks, ltering, log, . . .
+R. Serral-Gracià, et. al Networks 15
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Outline
+1 Introduction
+
+2 Servers
+
+3 Service Brokers
+Superserver
+Remote Procedure Calls (RPC)
+Portmapper
+
+4 Pure services
+
+5 Network le Sharing
+
+6 Monitoring
+R. Serral-Gracià, et. al Networks 16
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Superserver
+
+A service even when idle uses resources
+Many services are requested only from time to time:
+telnet, ftp, ssh, . . .
+Superserver listens to all the ports and activates the
+service only when needed
+It detects the request
+Initiates the service
+Passes the message
+Limitations
+Between connections it is not possible to keep information
+in memory
+Overhead caused by process creation
+
+Implementations: inetd, xinetd
+
+R. Serral-Gracià, et. al Networks 17
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+/etc/xinetd.conf, /etc/xinetd.d
+
+
+Indicates the services offered by the superserver
+Service, Protocol, User/group, Server, Parameters
+
+$ cat /etc/xined.conf
+includedir /etc/xinetd.d
+
+
+
+$ cat /etc/xined.d/ftp
+service ftp
+{
+socket_type = stream
+wait = no
+user = root
+server = /usr/sbin/vsftpd
+log_on_success += HOST DURATION
+log_on_failure += HOST
+disable = no
+}
+
+
+
+
+R. Serral-Gracià, et. al Networks 18
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Remote Procedure Calls (RPC)
+Remote subroutine invokation
+Identied by a service number ID
+RPC Servers
+They implement a set of remote connections
+Listen in a dynamic port
+Portmapper
+Registers the RPC servers
+Maps the port with the subroutines
+Needed by other services
+NFS, . . .
+
+
+
+
+R. Serral-Gracià, et. al Networks 19
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Portmapper
+All the status is kept on memory
+If the process fails, is not enough restarting it
+All RPC servers must be restarted
+All services must be registered upon portmapper start
+
+
+
+
+R. Serral-Gracià, et. al Networks 20
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Outline
+1 Introduction
+
+2 Servers
+
+3 Service Brokers
+
+4 Pure services
+Domain Name System (DNS)
+Dynamic Host Conguration Protocol (DHCP)
+Hypertext Transfer Protocol (HTTP)
+File Transfer Protocol (FTP)
+The E-Mail system
+Secure Shell
+Lightweight Directory Access Protocol (LDAP)
+Virtual Private Networks (VPN)
+R. Serral-Gracià, et. al Networks 21
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Domain Name System (DNS)
+
+
+
+Name resolution service
+Hostname → IP address
+IP Address → hostname
+Issues
+Large amount of machines
+Large number of changes
+Solution
+Hierarchical distribution of the information (domains)
+Authority delegation
+
+
+
+
+R. Serral-Gracià, et. al Networks 22
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+DNS Internals
+
+Authority delegation
+
+Each domain administers its own server
+Everybody knows the higher servers in the hierarchy (root)
+Everybody knows the server for their domain
+Name resolution is iterative
+
+
+
+
+DNS: RFCs 1034/1035
+
+R. Serral-Gracià, et. al Networks 23
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Service performance
+Using ”caches“ is convenient
+
+High temporal locality
+Avoids repeating the same query
+
+High spacial locality
+Avoids going up to the root servers too often
+
+Avoids some steps of the iterative search
+
+
+DNS can be used for load balancing
+
+We can have several IPs for the same name
+Each query returns different values: Round Robin or ”geographical“ criteria
+
+$ nslookup www.google.com
+Name: www.google.com
+Address: 212.106.221.23
+Name: www.google.com
+Address: 212.106.221.27
+Name: www.google.com
+Address: 212.106.221.25
+...
+
+
+R. Serral-Gracià, et. al Networks 24
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+DNS client conguration
+
+
+
+/etc/host.conf
+Where a name is searched and its order
+/etc/hosts
+Locally translated machines
+/etc/resolv.conf
+Automatic domains to be searched
+IP addresses of the DNS servers
+
+
+
+
+R. Serral-Gracià, et. al Networks 25
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+DNS Server conguration
+
+
+/etc/bind/named.conf
+What are we administering?
+DNS Domains
+IP addresses ranges
+Indicates primary, secondary, or cache
+Direct translation les
+Name.domain → IP address
+1 le for each administered domain
+Inverse translation le
+IP Address → name.domain
+1 le for each administered IP range
+
+
+
+
+R. Serral-Gracià, et. al Networks 26
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+DNS type of registers
+
+SOA (Start of Authority)
+Serial number
+Refresh time and retries
+Expiration times
+Minimum TTL
+A - Direct translation
+Name → IP address
+romeu IN A 147.83.32.4
+
+
+CNAME - synonyms
+Name → name
+romeu IN CNAME lp_romeu
+
+
+
+
+R. Serral-Gracià, et. al Networks 27
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+DNS type of registers
+PTR - inverse translation
+IP Address → DNS name
+4 IN PTR romeu.ac.upc.edu.
+
+
+NS - Domain delegation
+DNS Domain→ server
+ac IN NS 147.83.32.3
+
+
+MX - mail exchanger
+DNS Domain → server
+ac IN MX 147.83.33.10
+
+
+I altres. . .
+HINFO, WKS, . . .
+R. Serral-Gracià, et. al Networks 28
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+DNS conguration example
+
+
+Zone ”cluster.mygroup.upc.edu“, as primary.
+
+$ cat /etc/bind/named.conf
+options {
+directory ""/var/cache/bind"";
+forwarders {
+147.83.159.217;
+};
+auth-nxdomain no; # conform to RFC1035
+listen-on-v6 { any; };
+};
+zone ""cluster.craax.upc.edu"" {
+type master;
+file ""/etc/bind/cluster.zone"";
+};
+
+zone ""1.1.10.in-addr.arpa"" {
+type master;
+file ""/etc/bind/cluster.rev"";
+};
+
+
+
+
+R. Serral-Gracià, et. al Networks 29
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+DNS conguration example
+$ cat /etc/bind/cluster.zone
+$TTL 604800
+@ IN SOA cluster. cluster.craax.upc.edu. (
+20101220 ; Serial
+604800 ; Refresh
+86400 ; Retry
+2419200 ; Expire
+604800 ) ; Negative Cache TTL
+;
+@ IN NS gandalf
+$ORIGIN cluster.craax.upc.edu.
+gandalf IN A 10.1.1.1
+boromir-1 IN A 10.1.1.2
+
+
+$ cat /etc/bind/cluster.rev
+$TTL 604800
+@ IN SOA cluster. cluster.craax.upc.edu. (
+20101220 ; Serial
+604800 ; Refresh
+86400 ; Retry
+2419200 ; Expire
+604800 ) ; Negative Cache TTL
+;
+@ IN NS gandalf
+$ORIGIN cluster.craax.upc.edu.
+1 IN PTR gandalf.cluster.craax.upc.edu.
+2 IN PTR boromir-1.cluster.craax.upc.edu.
+
+R. Serral-Gracià, et. al Networks 30
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Exercise
+
+
+We have 3 services at (server1, server2 i server3)
+with these registers
+server1 IN A 123.123.123.1
+server2 IN A 123.123.123.2
+server3 IN A 123.123.123.3
+
+
+We want to add the following services
+www at server1 (server2 is the backup server)
+ftp at server1 and server2
+incoming/outgoing mail at server3
+
+Which registries would you add?
+
+
+
+R. Serral-Gracià, et. al Networks 31
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+DNS Related tools
+
+
+
+whois domain
+Provides contact information for a domain
+dig [@server] query
+Performs a DNS query
+It allows controlling different resources
+Server, type of register, iterative/recursive resolution, . . .
+Returns the registers corresponding to the query
+It supports debugging
+
+
+
+
+R. Serral-Gracià, et. al Networks 32
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Dynamic Host Conguration Protocol (DHCP)
+
+
+
+It delivers automatically the network conguraiton to a host
+IP assignation, Gateway and DNS
+Machine trustfulness is not veried
+By default it is assumed that if the host can reach
+connectivity then it is legitimate
+It can provide MAC address verication
+IP addresses are assigned from a predened range
+
+
+
+
+R. Serral-Gracià, et. al Networks 33
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Dynamic Host Conguration Protocol (DHCP)
+
+
+
+
+Remote boot support through BOOTP and PXE
+
+Preboot Execution Environment (PXE)
+Network card uses BIOS to get network information
+It allows to decide the kernel image to boot
+Downloaded through TFTP
+A remote root system can be mounted
+
+
+
+
+R. Serral-Gracià, et. al Networks 34
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Dynamic Host Conguration Protocol (DHCP)
+
+
+
+ddns-update-style none;
+For /etc/resolv.conf option domain-name-servers 192.168.1.1;
+
+For PXE allow booting;
+allow bootp;
+default-lease-time 600;
+max-lease-time 7200;
+authoritative;
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+range dynamic-bootp 192.168.1.172 192.168.1.254;
+For ifconfig range 192.168.1.2 192.168.1.171;
+filename ""pxelinux.0"";
+For route
+option subnet-mask 255.255.255.0;
+option broadcast-address 192.168.1.255;
+option routers 192.168.1.1;
+}
+
+
+
+
+R. Serral-Gracià, et. al Networks 35
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Dynamic Host Conguration (DHCP)
+
+
+DHCP and DNS can work together
+
+
+
+
+/etc/dhcpd/dhcpd.conf /etc/bind/named.conf
+ddns-update-style interim; key DHCP_UPDATER {
+key DHCP_UPDATER { algorithm HMAC-MD5.SIG-ALG.REG.INT;
+algorithm HMAC-MD5.SIG-ALG.REG.INT; secret pRP5FapFoJ95JEL06sv4PQ==;
+secret pRP5FapFoJ95JEL06sv4PQ==; };
+}; zone ac.upc.edu. {
+zone ac.upc.edu. { type master;
+primary 192.168.1.1; file ""ac.zone"";
+key DHCP_UPDATER; allow-update { key DHCP_UPDATER; };
+} };
+...
+
+
+
+
+R. Serral-Gracià, et. al Networks 36
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Exercise
+
+
+
+
+In group
+
+Which potential problem can be caused by a DHCP server
+crash?
+Propose an implementation to solve it
+
+
+
+
+R. Serral-Gracià, et. al Networks 37
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Hypertext Transfer Protocol (HTTP)
+
+
+
+Data transfer service
+Connectionless
+There is no state between connections
+Each petition is self-contained
+Nevertheless it uses TCP
+
+
+
+
+R. Serral-Gracià, et. al Networks 38
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Apache Web Server
+
+Implements support for HTTP
+/etc/apache/httpd.conf
+
+Main features
+
+Unprivileged user execution
+Queries are served using memory separated
+processes/threads
+Memory sharing congurable by the administrator
+Maximum concurrent processes limit
+Conguration options in a per directory basis
+Virtual Host conguration
+By IP address
+By DNS name
+
+R. Serral-Gracià, et. al Networks 39
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+File Transfer Protocol (FTP)
+
+Data transfer service
+Connection oriented
+Control connection
+There is state between connections: cwd
+Data connection
+active: does not support NAT
+passive: NAT is supported
+There is a new data connection per transfer
+
+
+
+
+R. Serral-Gracià, et. al Networks 40
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+FTP Conguration
+
+
+There are many server implementations
+wu-ftpd, proftpd, vsftpd, . . .
+User level based authorization: /etc/ftpusers
+List of the users that CAN’T access FTP
+Use chroot for security in Aonymous FTP
+Changes the root of the process
+Extra conguration
+Requires install basic commands and conguration les
+/etc/passwd, /etc/shadow
+/bin/ls, /lib/libc.so, . . .
+Use it even for regular users
+
+
+
+
+R. Serral-Gracià, et. al Networks 41
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Simple Mail Transfer Protocol (SMTP)
+
+Parts composing the mail system
+
+MUA - Mail User Agent
+User application to read/write e-mails
+MSA - Mail Submission Agent
+Application to transmit the mail from the client to the MTA
+It make all previous error checking
+MTA - Mail Transport Agent
+It sends the e-mail between servers
+Delivery Agent
+Application to store mails into the user’s mailbox
+Sometimes the mails are stored into a database
+Access Agent
+Application allowing the user to access its e-mail
+
+R. Serral-Gracià, et. al Networks 42
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Mail system components
+
+
+
+
+R. Serral-Gracià, et. al Networks 43
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Internals of an e-mail
+
+
+Envelope
+Message destination
+Source
+Not received by the clients – only for servers
+Headers
+Set of message properties
+Sending date
+Source and destination (shown by the e-mail clients)
+List of servers the message has crossed
+Message body
+Uses 7 bits ASCII
+Attachments use Base-64
+
+
+
+R. Serral-Gracià, et. al Networks 44
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Mail client conguration
+
+
+Mail reception
+Access to local mailbox
+Mailbox/maildir format interpreter
+Remote mailbox access
+POP3
+IMAP
+
+Mail sending
+Using an SMTP server
+
+
+
+
+R. Serral-Gracià, et. al Networks 45
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+E-Mail server conguration
+
+
+Mail sending – sendmail/postx
+Sending direct to the destination
+Search for MX record in DNS – local destination
+Sending through a Relay
+No direct access to the destination
+
+Mail reception
+Store the mails locally
+POP3, DIMAP
+Store the mails in the remote server
+IMAP
+
+
+
+R. Serral-Gracià, et. al Networks 46
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+E-mail reception
+
+Post Ofce Protocol (POP)
+
+It allows users to access their mailbox
+It downloads the messages to the local machine
+Authentication without encryption
+pop3s secure alternative using SSL
+
+Internet Message Access (IMAP)
+
+It allows users to manage their mailbox
+Management is performed remotely
+User authentication
+Allowing encryption
+imaps even more secure alternative using SSL
+R. Serral-Gracià, et. al Networks 47
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Security considerations
+
+
+
+User authentication
+
+By default the server does not ask for credentials
+SASL can be used
+Envelope can be forged — SPAM . . .
+Trust mail relays
+The server always tries to send the message
+Even if the headers do not belong to the domain (Open
+Relays)
+
+
+
+
+R. Serral-Gracià, et. al Networks 48
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Security considerations
+
+Mail privacy
+Mail is sent in plain text
+Use of TLS (SSL) only between MUA and MTA
+PGP - Pretty Good Privacy
+Message cyphering and signing
+Based in public key cryptography
+S/MIME
+
+Filter installation
+Anti-spam
+Spamassasin, gray lists, black lists, . . .
+Anti-virus
+Clam AV, Amavis, f-prot,. . .
+
+R. Serral-Gracià, et. al Networks 49
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Exercise – In group
+
+
+
+
+We just set up a lter to control spam
+
+Which action would you take as a server when you detect
+a spam message?
+And if the lter is an anti-virus?
+
+
+
+
+R. Serral-Gracià, et. al Networks 50
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Secure Shell
+
+It substitutes rsh/rlogin and telnet
+Adding security
+It performs authentication based on RSA, DSA, ECDSA
+Session key is signed by the client’s private key
+The server uses the public key as stored in
+(.ssh/authorized_keys) to check if the signature is
+correct
+password based authentication is also supported
+Connection is fully encrypted
+Condentiality: 3DES, Blowfish, . . .
+Integrity: hmac-md5, . . .
+The server runs the specied command or offer a shell
+Transparent session
+Whenever a pseudo-terminal is not requested
+It can be used to transfer binary les
+
+R. Serral-Gracià, et. al Networks 51
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Lightweight Directory Access Protocol (LDAP)
+
+
+
+It provides access to users database
+Directory format (X.500)
+It offers user authentication methods
+/etc/passwd, /etc/shadow, /etc/group, . . .
+. . . they can be dumped to the LDAP database
+Besides regular les, login can also be controlled through
+the database
+It is used extensively on Windows Server Active Directory
+
+
+
+
+R. Serral-Gracià, et. al Networks 52
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Virtual Private Networks (VPN)
+
+
+Server and client negotiate a secure connection
+An internal IP is offered through a secure tunnel
+It grants access to all the internal services
+
+
+
+
+R. Serral-Gracià, et. al Networks 53
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Outline
+1 Introduction
+
+2 Servers
+
+3 Service Brokers
+
+4 Pure services
+
+5 Network le Sharing
+Network File System (NFS)
+Samba (SMB)
+
+6 Monitoring
+
+7 Networking Example
+R. Serral-Gracià, et. al Networks 54
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Network File System (NFS)
+
+File access in a remote server
+Keeping the semantics (privilege wise) of the local
+lesystem
+It is transparent to the user
+Implemented using RPC’s
+
+
+
+
+R. Serral-Gracià, et. al Networks 55
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Remote mounting for NFS
+
+The mounted directory is presented as local
+
+
+
+
+R. Serral-Gracià, et. al Networks 56
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Access privileges
+
+UIDs in the remote machines must be the same as used in
+local
+Filesystems store UID rather than usernames
+This can be adapted by using idmapd
+UID automatic translation (idmapd)
+root, nobody
+Options
+no_root_squash, root can su to any user!
+all_squash, all users become nobody
+We can decide who nobody is
+anonuid=UID,anongid=GID
+
+
+
+
+R. Serral-Gracià, et. al Networks 57
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+NFS Conguration
+
+
+
+Determine which resources to export
+Hosts to export to
+Conguration ags
+/etc/exports
+/ master(rw) trusty(rw,no_root_squash)
+/projects proj*.local.domain(rw)
+/usr *.local.domain(ro) @trustedgroup(rw)
+/home/joe pc001(rw,all_squash,anonuid=150,anongid=100)
+/pub (ro,insecure,all_squash)
+
+
+
+
+R. Serral-Gracià, et. al Networks 58
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+SMB — Samba
+
+
+
+It allows sharing les and printers
+User level access control
+Authentication using login and password
+Based on username not UID
+Encripted and plaintext password transmission
+Machine based access restriction
+It does not allow to change permissions depending on the
+source
+One must use different share names
+
+
+
+
+R. Serral-Gracià, et. al Networks 59
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Outline
+1 Introduction
+
+2 Servers
+
+3 Service Brokers
+
+4 Pure services
+
+5 Network le Sharing
+
+6 Monitoring
+
+7 Networking Example
+
+R. Serral-Gracià, et. al Networks 60
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Packet Snifng — tcpdump
+
+
+
+
+R. Serral-Gracià, et. al Networks 61
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Service Detection—ss
+
+
+
+Syntax
+ss [options]
+-a – Display both listening and non-listening (for TCP this
+means established connections) sockets.
+
+aso@localhost:~$ ss -a
+Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port Process
+u_str ESTAB 0 0 /run/systemd/journal/stdout 40159 * 38282
+tcp LISTEN 0 50 0.0.0.0:bacula-fd 0.0.0.0:*
+
+
+
+
+R. Serral-Gracià, et. al Networks 62
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Service Detection—nmap
+
+Syntax
+nmap [options] IP_list
+
+aso@localhost:~$ nmap 192.168.1.2
+
+Starting Nmap 6.47 ( http://nmap.org ) at 2014-11-19 00:18 CET
+Nmap scan report for 192.168.1.2
+Host is up (0.057s latency).
+Not shown: 988 closed ports
+PORT STATE SERVICE
+22/tcp open ssh
+53/tcp open domain
+80/tcp open http
+111/tcp open rpcbind
+143/tcp open imap
+443/tcp open https
+514/tcp open shell
+993/tcp open imaps
+2049/tcp open nfs
+6566/tcp open sane-port
+9101/tcp open jetdirect
+9103/tcp open jetdirect
+
+Nmap done: 1 IP address (1 host up) scanned in 3.36 seconds
+
+
+
+R. Serral-Gracià, et. al Networks 63
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Other Applications
+
+snort - Intrusion detection system
+logwatch - Log Watcher
+ntop - Network Top
+
+
+
+
+R. Serral-Gracià, et. al Networks 64
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Outline
+1 Introduction
+
+2 Servers
+
+3 Service Brokers
+
+4 Pure services
+
+5 Network le Sharing
+
+6 Monitoring
+
+7 Networking Example
+
+R. Serral-Gracià, et. al Networks 65
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Task
+
+A company has the following characteristics
+Company Executive Management has 5 PC.
+Administration department has 10 PC.
+Available IP addresses: 180.45.23.0/28
+The company needs the following services:
+Web – General to the SSH - Present in all
+whole company servers
+E-Mail – General to the DHCP
+whole company DNS - Server for the
+File Sharing using NFS – employees
+Per department Printing Service
+VPN - General to the HTTPS Intranet
+whole company
+
+
+R. Serral-Gracià, et. al Networks 66
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Task
+
+
+
+Service Load
+
+Web Very High SSH Very Low
+E-Mail High DHCP Low
+File Sharing using NFS Very DNS Normal
+High Printing Service Very Low
+VPN Very Low HTTPS Intranet Normal
+
+
+
+
+R. Serral-Gracià, et. al Networks 67
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Task
+Add all the necessary servers and network equipment
+
+
+
+
+R. Serral-Gracià, et. al Networks 68
+Introduction Servers Service Brokers Pure services Network le Sharing Monitoring Netw
+
+
+
+Task
+
+
+
+
+Questions
+Would you buy more hardware
+Distribute all the services among the different servers
+Specify where would you install the rewall and its basic
+conguration (This will be done in lesson 9)
+
+
+
+
+R. Serral-Gracià, et. al Networks 69"
+1,Estructura_propuesta_proyecto (1),2025-09-29 15:25:22.381081,0000001.pdf,1,"Propuesta de proyecto – Estructura orientativa
+
+1. Resumen propuesta
+
+2. Objetivos tecnológicos del proyecto y trabajos existentes/trabajo relacionado/punto de
+partida
+
+3. Propuesta de proyecto
+- Descripción propuesta
+- Explicar trabajo a hacer, desglosar trabajos en varios paquetes de trabajo
+- Explicar relación entre los paquetes de trabajo
+- Plan de trabajo (esquema temporal (Gantt)) (previsión dedicación)
+- Resultado que se espera obtener
+
+4. Relación de la propuesta con la asignatura
+- explicarlo
+
+5. Potencial de innovación
+- explicarlo *)
+
+6. Paquetes de t rabajo
+Para cada paquete de trabajo:
+- objetivos,
+- descripción de trabajo a hacer,
+- resultado que se espera
+-
+Ejemplo paquetes de trabajo (dependen del proyecto)
+
+PT1 contexto tecnológico, definición, servicios
+disponibles
+PT2 implementación algoritmo
+PT3 evaluación (de prestaciones) y pruebas
+PT4 coordinación (desarrollo, redacción, verificación), apoyo a otros PT.
+
+
+7. El grupo de proyecto
+
+6.1 Role de los participantes
+(Roles: coordinador, el responsable de cada paquete de trabajo, ... )
+Cada participante asume la responsabilidad de al menos un paquete de trabajo.
+
+6.2 Organización y gestión del proyecto
+- número de reuniones del grupo de proyecto y cuando, ...
+- herramientas utilizadas para la organización y gestión
+- planificar por lo menos una reunión de revisión presencial con el profesor a
+mitad del proyecto.
+
+
+Referencias
+
+*) Ejemplos de algunas preguntas que se pueden contestar en este apartado (si aplicable).
+ What is the project's solution to the problem?
+ What problem does the project’s product or service solve? What niche will it fill?
+ Who are the customers, and how would a company market and sell its products to them?
+ What is the size of the market for the project’s solution?
+ What is the business model for the business (how will it make money)?
+ Who are the competitors and how would the company maintain a competitive advantage?
+ What are the risks and threats confronting the business, and what can be done to mitigate
+them?
+ What are the company's capital and resource requirements?"

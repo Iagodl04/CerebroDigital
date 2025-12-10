@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  fotos-api:
+    build: ./fotos-api
+    container_name: fotos-api
+    environment:
+      FOTOS_ROOT: "/data/fotos_immich/admin"
+      CORS_ALLOW_ORIGINS: "http://localhost:8088,http://192.168.1.10:8088"
+    volumes:
+      - ../fotos_immich:/data/fotos_immich:ro   # usa el SYMLINK des de l'arrel
+    ports:
+      - "8091:8080"    # publica 8091 a la Raspi
+    restart: unless-stopped
