@@ -41,7 +41,7 @@ El proyecto utiliza una arquitectura de microservicios contenerizados sobre hard
 
 ### Inteligencia Artificial (Local)
 * **Motor:** Ollama ejecutándose en la Raspberry Pi.
-* **Modelo:** Qwen 2.5 (1.5B), un modelo ligero y optimizado para hardware limitado[cite: 567].
+* **Modelo:** Qwen 2.5 (1.5B), un modelo ligero y optimizado para hardware limitado.
 * **Enfoque:** La IA procesa un CSV estructurado (ubicaciones, fechas, salud, ...) para generar texto narrativo.
 
 ### Frontend
@@ -71,7 +71,7 @@ Durante el desarrollo (Fase PT4), nos enfrentamos a una limitación crítica: el
 
 **Nuestra Solución:**
 Cambiamos el paradigma de **"Ver imágenes"** a **"Leer datos"**.
-En lugar de procesar imágenes pesadas, desarrollamos un middleware que extrae metadatos (EXIF, coordenadas, contadores de pasos) y se los alimenta a la IA en formato JSON[cite: 298, 299]. [cite_start]Esto permitió generar resúmenes precisos con una latencia aceptable y sin comprometer la estabilidad del servidor.
+En lugar de procesar imágenes pesadas, desarrollamos un middleware que extrae metadatos (EXIF, coordenadas, contadores de pasos) y se los alimenta a la IA en formato CSV. Esto permitió generar resúmenes precisos con una latencia aceptable y sin comprometer la estabilidad del servidor.
 
 ## 🔮 Futuro del Proyecto
 
