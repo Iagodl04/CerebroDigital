@@ -18,6 +18,8 @@ El sistema integra fotos, documentos y datos de salud en una interfaz unificada,
     * 📸 Fotos y Vídeos (Immich).
     * 📄 Documentos (Paperless-ngx).
     * ❤️ Salud (Health Connect: Pasos y Sueño).
+    * 🗓️ Agenda (Nextcloud Calendar: Eventos y Citas).
+    * 🗺️ Ubicación (Leaflet.js: Rutas y Lugares Visitados).
 * **Narrativa con IA:** Implementación de un LLM local para convertir metadatos fríos en historias coherentes sobre tu día.
 
 ## 🛠️ Arquitectura y Tecnologías
@@ -41,7 +43,7 @@ El proyecto utiliza una arquitectura de microservicios contenerizados sobre hard
 ### Inteligencia Artificial (Local)
 * **Motor:** Ollama ejecutándose en la Raspberry Pi.
 * **Modelo:** Phi-3 (o similar cuantizado) optimizado para hardware limitado.
-* **Enfoque:** La IA procesa JSON estructurados (ubicaciones, fechas, contadores) para generar texto narrativo.
+* **Enfoque:** La IA procesa un CSV estructurado (ubicaciones, fechas, salud, ...) para generar texto narrativo.
 
 ### Frontend
 * **Tecnologías:** HTML5, Tailwind CSS y JavaScript Vanilla (sin frameworks pesados para maximizar rendimiento).
