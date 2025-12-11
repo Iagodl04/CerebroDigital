@@ -53,17 +53,19 @@ El proyecto utiliza una arquitectura de microservicios contenerizados sobre hard
 ### 1. Panel de Control y Resumen IA
 El usuario selecciona una fecha y el sistema genera una narrativa contando qué hizo, basándose en sus fotos, ubicación y salud.
 
-![Generación de Resumen con IA](ruta/a/tu/captura_resumen_ia.png)
+![Generación de Resumen con IA](resumen_ia.png)
 
 ### 2. Gestión de Contenedores
 Monitorización en tiempo real del estado de los servicios (Immich, Postgres, Redis, etc.) mediante Portainer.
 
-![Portainer Dashboard](ruta/a/tu/captura_portainer.png)
+![Portainer Dashboard](portainer.png)
 
-### 3. Servicios Auto-alojados (Immich y Paperless)
+### 3. Servicios Auto-alojados (Immich, Paperless y NextCloud)
 Integración completa de herramientas profesionales para la gestión de activos digitales.
 
-![Interfaz de Immich y Paperless](ruta/a/tu/captura_servicios.png)
+![Interfaz de Immich](immich.png)
+![Interfaz de Paperless](paperless.png)
+![Interfaz de NextCloud](nextcloud.png)
 
 ## 🔄 El Desafío Técnico: Pivote de la IA
 
