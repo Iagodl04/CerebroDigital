@@ -73,11 +73,29 @@ Durante el desarrollo (Fase PT4), nos enfrentamos a una limitación crítica: el
 Cambiamos el paradigma de **"Ver imágenes"** a **"Leer datos"**.
 En lugar de procesar imágenes pesadas, desarrollamos un middleware que extrae metadatos (EXIF, coordenadas, contadores de pasos) y se los alimenta a la IA en formato CSV. Esto permitió generar resúmenes precisos con una latencia aceptable y sin comprometer la estabilidad del servidor.
 
-## 🔮 Futuro del Proyecto
+## 🔮 Futuro del Proyecto: Evolución del Hardware
 
-* **Voz a Texto:** Implementación de Whisper local para añadir notas de voz subjetivas al resumen diario.
-* **Hardware NPU:** Integración de aceleradores como Coral Edge TPU para reducir tiempos de inferencia.
-* **RAG (Retrieval-Augmented Generation):** Dotar a la IA de memoria a largo plazo mediante bases de datos vectoriales.
+Aunque la implementación actual en Raspberry Pi valida el concepto, el futuro de **Mi Cerebro Digital** pasa por romper las barreras físicas del hardware actual. Para lograr una experiencia fluida con modelos de IA más complejos y múltiples usuarios simultáneos, proponemos una evolución hacia plataformas más robustas.
+
+El objetivo es migrar de un entorno de desarrollo (PoC) a una infraestructura de producción capaz de manejar cargas de trabajo intensivas mediante tres vías de mejora:
+
+### 1. Potencia Bruta y Memoria (Arquitectura x86)
+La limitación principal actual es la memoria RAM (max 8GB en RPi). Migrar a una arquitectura de PC tradicional permitiría:
+* **Más RAM:** Escalar a 32GB o 64GB, permitiendo cargar modelos de lenguaje (LLMs) mucho más grandes y precisos en memoria, junto con bases de datos pesadas en paralelo.
+* **Almacenamiento NVMe:** Uso de discos nativos en placa base para velocidades de lectura/escritura muy superiores al USB 3.0 actual.
+* **Hardware sugerido:** *Intel NUC, Mini-PCs (Beelink/Lenovo Tiny) o Servidores domésticos.*
+
+### 2. Especialización en Inteligencia Artificial (Edge AI)
+Para que la IA responda en tiempo real (milisegundos en lugar de segundos) y pueda analizar vídeo en vivo, es necesario hardware dedicado al cálculo tensorial:
+* **GPUs y NPUs:** Abandonar el uso de la CPU para la IA y delegar el trabajo a núcleos gráficos o unidades de procesamiento neuronal.
+* **Hardware sugerido:**
+    * **Ecosistema NVIDIA Jetson (Nano/Orin):** Placas de desarrollo con núcleos CUDA diseñados específicamente para robótica e IA autónoma.
+    * **Aceleradores USB:** Dispositivos como Coral Edge TPU o Hailo AI que se conectan al servidor existente para "turboalimentar" la inferencia.
+
+### 3. Seguridad y Redundancia de Datos
+Para garantizar que "Tu Cerebro Digital" sea eterno y resistente a fallos físicos:
+* **Sistemas RAID:** Implementación de matrices de discos redundantes (RAID 1 o RAID 5). Si un disco duro físico se rompe, los datos sobreviven en los otros sin interrupción del servicio.
+* **Hardware sugerido:** *Integración con NAS comerciales (Synology/QNAP) o construcción de un servidor con múltiples bahías de disco.*
 
 ## 👥 Autores - Grupo 4
 
