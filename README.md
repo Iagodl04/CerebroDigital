@@ -25,7 +25,7 @@ Más allá de un simple sistema de copias de seguridad, este proyecto transforma
 
 El proyecto utiliza una arquitectura de microservicios contenerizados sobre hardware de bajo consumo optimizado para alto rendimiento I/O.
 
-![Arquitectura del Sistema](ruta/a/tu/diagrama_arquitectura.png)
+![Diagrama de Flujo de Tecnologías](flujoTecnologias.png)
 
 ### Infraestructura
 * **Hardware:** Raspberry Pi 5 (8GB RAM) con arranque desde SSD vía USB 3.0 para evitar cuellos de botella.
